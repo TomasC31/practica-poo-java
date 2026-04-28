@@ -1,12 +1,16 @@
+interface AccionJugador {
+    void jugar();
+}
 
-abstract class Jugador {
+// Uso la interfaz ahora
+abstract class Jugador implements AccionJugador {
 
-    // Atributo privado = encapsulamiento
     private String nombre;
 
     public Jugador(String nombre) {
-        setNombre(nombre); // uso setter para validar
+        setNombre(nombre);
     }
+
 
     public String getNombre() {
         return nombre;
@@ -20,12 +24,9 @@ abstract class Jugador {
             this.nombre = "Sin nombre";
         }
     }
-
-    // Método abstracto
-    public abstract void jugar();
 }
 
-// Herencia
+//Hereda de Jugador e implementa jugar()
 class Delantero extends Jugador {
 
     public Delantero(String nombre) {
@@ -38,7 +39,7 @@ class Delantero extends Jugador {
     }
 }
 
-// Herencia
+// Tambien hereda de Jugador e implementa jugar()
 class Defensor extends Jugador {
 
     public Defensor(String nombre) {
@@ -57,12 +58,6 @@ public class Main {
         Jugador jugador1 = new Delantero("Lionel");
         Jugador jugador2 = new Defensor("Cuti");
 
-        jugador1.jugar();
-        jugador2.jugar();
-
-        // Cambio de nombre usando encapsulamiento
-        jugador1.setNombre("Tomas");
-        jugador2.setNombre("Said"); 
         jugador1.jugar();
         jugador2.jugar();
     }
